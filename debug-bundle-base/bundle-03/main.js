@@ -56,7 +56,7 @@ const cars = [
         manufacturer: 'Seat',
         model: 'Ibiza',
         type: 'metano'
-    }
+    },
     {
         manufacturer: 'Audi',
         model: 'R8',
@@ -64,15 +64,16 @@ const cars = [
     },
 ];
 
-const gasolineCars = cars.filter( (auto) >= auto.type === 'benzina');
+const gasolineCars = cars.filter( (auto) => auto.type.toLocaleLowerCase() === 'benzina');
 
 const dieselCars = cars.filter( (auto) => {
-    auto.type === 'diesel';
+    return auto.type.toLocaleLowerCase() === 'diesel';
 });
 
 const otherCars = cars.filter( (auto) => {
-    return auto.type !== 'benzina' || auto.type !== 'diesel';
+    return auto.type.toLocaleLowerCase() !== 'benzina' && auto.type.toLocaleLowerCase() !== 'diesel';
 });
+
 
 console.log('Auto a benzina');
 console.log('*******************************');
@@ -84,3 +85,13 @@ console.log(dieselCars);
 
 console.log('Tutte le altre auto');
 console.log(otherCars);
+
+/*
+Questo codice serve a filtrate le macchine in base al loro tipo 
+Errore:
+1. Manca una virgola a chiudere l' oggeto a riga 59
+2. L'arrow function è scritta in modo sbagliato 
+3. Bisogna filtrare la tipologia delle macchine tutte in minuscolo 
+4. Bisogna aggiungere return a riga 70 
+5  Bisogna cambiare a riga 74 (||) in (&&)
+*/

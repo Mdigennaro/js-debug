@@ -98,13 +98,13 @@ function checkAccessImproved() {
         if (userEmail.length > 5) {
             
             if (email === userEmail) {
-                grantAccess = 'true';            
+                grantAccess = true;            
                 
             }
             
         }
         
-        if (grantAccess) {
+        if (grantAccess === true) {
             console.log('Accesso consentito!');
         } else {
             console.log('Accesso negato!');
